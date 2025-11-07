@@ -1,0 +1,73 @@
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #fff
+    }
+
+    .wrap {
+        display: flex;
+        gap: 120px;
+        align-items: flex-start
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 24px 32px;
+        min-width: 260px;
+        text-align: left
+    }
+
+    h1 {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 24px
+    }
+
+    label {
+        font-size: 12px;
+        display: block;
+        margin: 12px 0 4px
+    }
+
+    input {
+        width: 100%;
+        padding: 6px 8px;
+        border: 1px solid #ccc;
+        border-radius: 3px
+    }
+
+    button.primary {
+        width: 100%;
+        margin-top: 16px;
+        padding: 8px 0;
+        border: 0;
+        border-radius: 3px;
+        background: #f9a825;
+        color: #000;
+        font-weight: 600;
+        cursor: pointer
+    }
+
+    .side {
+        text-align: center
+    }
+
+    .side p {
+        margin-bottom: 16px;
+        font-size: 14px
+    }
+
+    button.link {
+        padding: 10px 32px;
+        border: 0;
+        border-radius: 4px;
+        background: #f9a825;
+        font-weight: 600;
+        cursor: pointer
+    }

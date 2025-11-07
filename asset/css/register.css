@@ -1,0 +1,104 @@
+/* ===== 共通スタイル ===== */
+body {
+    font-family: "メイリオ", sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 30px 0;
+    color: #333;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.note {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #aaa;
+    margin-top: 40px;
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.form-table th {
+    width: 220px;
+    background: #f8f8f8;
+    text-align: left;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 300px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+input[type="text"]+input[type="text"],
+input[type="email"]+input[type="email"] {
+    margin-left: 10px;
+}
+
+.radio-group label {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.required {
+    background: #a00;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 5px;
+    margin-left: 8px;
+    border-radius: 2px;
+}
+
+.submit-area {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.submit-area button {
+    background: #a00;
+    color: #fff;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-area button:hover {
+    background: #c00;
+}
+
+/* ===== 確認画面用 ===== */
+.confirm-page h2 {
+    text-align: center;
+    color: #a00;
+}
+
+.confirm-page table th {
+    width: 200px;
+}
+
