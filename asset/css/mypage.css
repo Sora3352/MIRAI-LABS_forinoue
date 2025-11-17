@@ -1,0 +1,94 @@
+.mypage-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.mypage-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 2カラム */
+.mypage-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.mypage-box {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+/* ボックスヘッダー */
+.mypage-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-left {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-small {
+    padding: 5px 12px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.mypage-box-body p {
+    margin: 8px 0;
+}
+
+/* リンク一覧 */
+.mypage-links a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+}
+
+.mypage-links a i {
+    margin-right: 10px;
+}
+
+/* キャンペーンエリア */
+.mypage-campaign {
+    background: #f8e0a0;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.campaign-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.campaign-btn {
+    display: inline-block;
+    background: #ff6600;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.campaign-btn i {
+    margin-right: 10px;
+}

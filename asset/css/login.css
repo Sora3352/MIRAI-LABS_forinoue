@@ -1,0 +1,106 @@
+/* ===== All styles only apply inside login-container ===== */
+
+.login-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* カード */
+.login-container .login-box,
+.login-container .register-box {
+    width: 48%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* タイトル */
+.login-container .login-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.login-container .register-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 入力欄 */
+.login-container .input-group {
+    margin-bottom: 25px;
+}
+
+.login-container .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.login-container .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.login-container .input-group input:focus {
+    outline: none;
+    border-color: #ff7f00;
+}
+
+/* ボタン */
+.login-container .login-btn,
+.login-container .register-btn {
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-container .login-btn {
+    width: 100%;
+    background: #ffa000;
+    padding: 12px 0;
+    color: #fff;
+}
+
+.login-container .login-btn:hover {
+    opacity: 0.9;
+}
+
+.login-container .register-btn {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px 0;
+    text-align: center;
+    background: #ffa000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.login-container .register-btn:hover {
+    opacity: 0.9;
+}
+
+/* エラーメッセージ */
+.login-container .error-message {
+    background: #ffe5e5;
+    color: #c00;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 14px;
+}

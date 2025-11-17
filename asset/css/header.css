@@ -1,114 +1,154 @@
 /* ================================
-   E-mart ヘッダー（デザイン完全コピー）
+   E-mart 公式風 2段ヘッダー
 ================================ */
 
+/* 全体 */
 .emart-header {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
+    background: white;
     border-bottom: 1px solid #ddd;
-    background: #fff;
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* 左側（ロゴ + 取扱点数画像） */
-.header-left {
+/* ===== 上段 ===== */
+.header-top {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    padding: 6px 20px;
 }
 
-.emart-logo {
-    height: 44px;
-}
-
-.item-count-img {
-    height: 40px;
-}
-
-
-/* 真ん中ボタンエリア */
-.header-center {
+/* 左（ロゴ + 製品点数） */
+.header-left {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
+.emart-logo {
+    height: 45px;
+}
+
+.item-count-img {
+    height: 20px;
+}
+
+/* 中央メニュー */
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+}
+
 .btn {
     padding: 6px 14px;
     border-radius: 6px;
-    font-size: 0.9rem;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
     border: 1px solid #ccc;
 }
 
-/* ログインボタン（オレンジ） */
 .login-btn {
-    background: #ff9900;
-    color: #fff;
+    background: #ff8c00;
+    color: white;
 }
 
-/* ログアウトボタン（黄色） */
 .logout-btn {
     background: #ffcc00;
     color: #333;
 }
 
 .signup-btn {
-    background: #fff;
-    border: 1px solid #bbb;
+    background: white;
     color: #333;
-}
-
-/* マイページ関連 */
-.mypage-area {
-    display: flex;
-    align-items: center;
-    gap: 6px;
 }
 
 .mypage-link {
-    color: #444;
     text-decoration: none;
-    font-size: 0.9rem;
+    color: #333;
 }
 
-
-/* 右側（カート＋問い合わせ＋Q&A） */
-.header-right {
+/* カート */
+.cart-link {
+    text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 4px;
+    color: #333;
 }
 
 .cart-icon {
-    height: 28px;
+    height: 22px;
 }
 
-.cart-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-}
-
+/* お問い合わせ / Q&A ボタン */
 .info-btn,
 .qa-btn {
-    border: 1px solid #aaa;
-    background: #fff;
-    padding: 6px 12px;
-    color: #333;
-    text-decoration: none;
+    display: inline-flex;
+    /* ← ボックス全体をクリック範囲にする */
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 8px 14px;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    text-align: center;
+    border: 1px solid #aaa;
+    color: #333;
+    text-decoration: none !important;
+    /* ← 下線を完全に無効化 */
+}
+
+.info-btn:hover,
+.qa-btn:hover {
+    opacity: 0.7;
+    /* ← ホバー時に少し光らせる */
+    text-decoration: none !important;
+    /* ← 下線を出させない */
+}
+
+/* ===== 下段 ===== */
+.header-bottom {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid #eee;
+}
+
+/* クイックオーダー */
+.quick-order-btn {
+    border: 1px solid #aaa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: white;
+    font-size: 0.8rem;
+    cursor: pointer;
     text-align: center;
 }
 
-.qa-btn {
-    padding: 6px 16px;
+/* 絞り込み */
+.filter-select {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+}
+
+/* 検索ボックス */
+.search-box {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* 検索ボタン */
+.search-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
 }
