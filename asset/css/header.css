@@ -1,0 +1,114 @@
+/* ================================
+   E-mart ヘッダー（デザイン完全コピー）
+================================ */
+
+.emart-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 左側（ロゴ + 取扱点数画像） */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.emart-logo {
+    height: 44px;
+}
+
+.item-count-img {
+    height: 40px;
+}
+
+
+/* 真ん中ボタンエリア */
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+
+/* ログインボタン（オレンジ） */
+.login-btn {
+    background: #ff9900;
+    color: #fff;
+}
+
+/* ログアウトボタン（黄色） */
+.logout-btn {
+    background: #ffcc00;
+    color: #333;
+}
+
+.signup-btn {
+    background: #fff;
+    border: 1px solid #bbb;
+    color: #333;
+}
+
+/* マイページ関連 */
+.mypage-area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mypage-link {
+    color: #444;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+
+/* 右側（カート＋問い合わせ＋Q&A） */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.cart-icon {
+    height: 28px;
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.info-btn,
+.qa-btn {
+    border: 1px solid #aaa;
+    background: #fff;
+    padding: 6px 12px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.qa-btn {
+    padding: 6px 16px;
+}
