@@ -31,3 +31,17 @@
     font-size: 12px;
     color: #777;
 }
+
+.footer-admin {
+    margin-top: 15px;
+}
+
+.footer-admin a {
+    font-size: 12px;
+    color: #777;
+    text-decoration: none;
+}
+
+.footer-admin a:hover {
+    text-decoration: underline;
+}

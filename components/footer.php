@@ -38,6 +38,10 @@ $WEB_ROOT = "/" . $project_root . "/";
         <a href="<?= $WEB_ROOT ?>src/pages/terms.php">利用規約</a>
         <a href="<?= $WEB_ROOT ?>src/pages/privacy.php">プライバシーポリシー</a>
     </div>
+    <div class="footer-admin">
+        <a href="<?= $WEB_ROOT ?>src/admin/admin_login.php">管理者ログインはこちら</a>
+    </div>
+
 
     <p class="footer-copy">
         © 2025 E-mart All Rights Reserved.
