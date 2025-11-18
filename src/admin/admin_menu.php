@@ -7,14 +7,13 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-include_once("../../components/header.php");
+include($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/admin_breadcrumb_auto.php');
 
 // 管理者名
 $admin_name = $_SESSION['admin_name'];
 ?>
 
 <link rel="stylesheet" href="/E-mart/asset/css/admin_menu.css">
-<?php include("../../components/admin_breadcrumb_auto.php"); ?>
 
 
 <div class="admin-menu-wrapper">
@@ -39,7 +38,7 @@ $admin_name = $_SESSION['admin_name'];
         </a>
 
         <!-- 商品管理（products フォルダ） -->
-        <a href="products/product_list.php" class="admin-card">
+        <a href="products/list.php" class="admin-card">
             <div class="admin-card-icon">📦</div>
             <div class="admin-card-title">商品管理</div>
             <div class="admin-card-desc">登録済み商品の編集</div>
@@ -69,5 +68,3 @@ $admin_name = $_SESSION['admin_name'];
     </div>
 
 </div>
-
-<?php include_once("../../components/footer.php"); ?>

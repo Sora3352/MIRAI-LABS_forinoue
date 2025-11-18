@@ -7,10 +7,8 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-include_once("../../components/header.php");
 ?>
-
-<?php include("../../components/admin_breadcrumb_auto.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/admin_breadcrumb_auto.php'); ?>
 
 <link rel="stylesheet" href="/E-mart/asset/css/form.css">
 
@@ -59,5 +57,3 @@ include_once("../../components/header.php");
         <a href="admin_list.php">← 管理者一覧へ戻る</a>
     </div>
 </div>
-
-<?php include_once("../../components/footer.php"); ?>

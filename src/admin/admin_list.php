@@ -8,9 +8,7 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-include_once("../../components/header.php");
-include_once("../../components/admin_breadcrumb_auto.php");
-
+include($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/admin_breadcrumb_auto.php');
 // 管理者一覧取得
 $stmt = $pdo->query("SELECT id, name, email FROM admins ORDER BY id ASC");
 $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,5 +40,3 @@ $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
 
 </div>
-
-<?php include_once("../../components/footer.php"); ?>

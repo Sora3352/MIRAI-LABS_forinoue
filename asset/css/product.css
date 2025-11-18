@@ -1,0 +1,154 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.top-actions {
+    margin-bottom: 20px;
+}
+
+.add-btn {
+    background: #28a745;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.search-form {
+    margin-bottom: 20px;
+}
+
+.search-form input,
+.search-form select {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.edit-btn {
+    background: #007BFF;
+    color: #fff;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+}
+
+.product-form {
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form select,
+.product-form textarea {
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.product-form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.required {
+    color: red;
+}
+
+.submit-btn {
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.back-wrap {
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    background: #ccc;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background: #bbb;
+}
+
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 3px;
+    background: #eee;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background: #007bff;
+    color: #fff;
+}
+
+.pagination a:hover {
+    background: #ddd;
+}
