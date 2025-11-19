@@ -57,3 +57,4 @@ if (!isset($_SESSION['admin_id'])) {
         <a href="admin_list.php">← 管理者一覧へ戻る</a>
     </div>
 </div>
+

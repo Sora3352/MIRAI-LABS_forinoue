@@ -85,7 +85,18 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- 商品追加ボタン -->
     <div class="top-actions">
+        <!-- トップに戻るボタンはグレーにする -->
+        <a href="/E-mart/src/admin/admin_menu.php" class="add-btn" style="background:#888;">← 管理トップ</a>
+
+
+        <!-- 商品追加 -->
         <a href="/E-mart/src/admin/products/add.php" class="add-btn">＋ 商品を追加</a>
+
+        <!-- カテゴリ管理 -->
+        <a href="/E-mart/src/admin/categories/list.php" class="add-btn" style="background:#6a1b9a; margin-left:10px;">
+            📂 カテゴリ管理
+        </a>
+
     </div>
 
     <!-- 検索フォーム -->
@@ -158,7 +169,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= $p['stock'] ?></td>
 
                             <td>
-                                <a href="/E-mart/src/admin/products/edit.php?id=<?= $p['id'] ?>" class="edit-btn">編集</a>
+                                <a href="/E-mart/src/admin/products/edit.php?id=<?= $p['id'] ?>" class="edit-btn" target="_self">編集</a><!-- 新しいタブで開かないようにしたい -->
                             </td>
 
                         </tr>

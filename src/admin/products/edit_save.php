@@ -140,5 +140,10 @@ $update->execute();
 
 
 // ===== 完了後リダイレクト =====
-header("Location: /E-mart/src/admin/products/list.php");
+$return_category = $_POST['return_category'] ?? '';
+$return_keyword = $_GET['keyword'] ?? ''; // 必要ならキーワードも保持
+
+$query = "?category=" . urlencode($return_category);
+
+header("Location: /E-mart/src/admin/products/list.php" . $query);
 exit();

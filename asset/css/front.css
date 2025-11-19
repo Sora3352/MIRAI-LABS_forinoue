@@ -1,0 +1,280 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.em-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 0%;
+}
+
+/* ---------- メインメッセージ ---------- */
+.top-hero {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border-left: 6px solid #ff7b00;
+}
+
+.top-hero h1 {
+    margin: 0 0 8px;
+    font-size: 22px;
+}
+
+/* ---------- バナー(A) ---------- */
+.top-banner .banner-wrap {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 0 16px;
+}
+
+.banner-card {
+    min-width: 260px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+    overflow: hidden;
+}
+
+.banner-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.banner-card span {
+    display: block;
+    padding: 8px 10px;
+    font-weight: bold;
+}
+
+
+/* ---------- お知らせ(C) ---------- */
+.top-news {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.top-news h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.top-news ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-news li {
+    display: flex;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.top-news .date {
+    color: #777;
+    min-width: 80px;
+}
+
+/* ---------- ピックアップ商品(B) ---------- */
+.top-pickups h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.pickup-slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
+
+.pickup-card {
+    min-width: 160px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pickup-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    background: #f0f0f0;
+    margin-bottom: 6px;
+}
+
+.pickup-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.pickup-price {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ff7b00;
+}
+
+.pickup-star {
+    color: gold;
+    font-size: 13px;
+}
+
+.top-category-nav {
+    margin: 0px auto;
+    padding: 0px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.top-category-nav h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cat-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 30px;
+}
+
+.cat-nav-item {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cat-nav-item:hover {
+    text-decoration: underline;
+}
+
+.category-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 15px;
+    color: #333;
+}
+
+.sale-slider {
+    margin: 16px 0 24px;
+}
+
+.sale-slider {
+    margin: 16px 0 24px;
+}
+
+.sale-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.sale-list {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* セールカードを pickup-card と完全一致 */
+.sale-card {
+    min-width: 160px;
+    min-height: 200px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sale-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    background: #f0f0f0;
+    margin-bottom: 6px;
+}
+
+.sale-tag {
+    display: inline-block;
+    background: #ff3b30;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+.sale-type {
+    color: #d60000;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.sale-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.sale-old {
+    text-decoration: line-through;
+    color: #777;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+.sale-name {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+/* ======== Amazon風セールラベル ======== */
+
+ラベル配置
+.sale-label-wrap {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: flex;
+    gap: 6px;
+}
+
+/* %OFF（赤） */
+.sale-label.off-label {
+    background: #ff2e2e;
+    color: #fff;
+    padding: 3px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* タイムセール（濃い赤） */
+.sale-label.time-label {
+    background: #c21807;
+    color: #fff;
+    padding: 3px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}

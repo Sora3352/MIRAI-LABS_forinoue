@@ -43,6 +43,26 @@ $admin_name = $_SESSION['admin_name'];
             <div class="admin-card-title">商品管理</div>
             <div class="admin-card-desc">登録済み商品の編集</div>
         </a>
+        <!-- セール管理（sale フォルダ） -->
+        <a href="sale/sale_list.php" class="admin-card">
+            <div class="admin-card-icon">🏷️</div>
+            <div class="admin-card-title">セール管理</div>
+            <div class="admin-card-desc">セール商品の編集</div>
+        </a>
+
+        <!-- トップピックス管理（top_picks_manage.php） -->
+        <a href="top_picks_manage.php" class="admin-card">
+            <div class="admin-card-icon">⭐</div>
+            <div class="admin-card-title">トップピックス管理</div>
+            <div class="admin-card-desc">注目商品の編集</div>
+        </a>
+
+        <!-- カテゴリナビ管理（category_nav フォルダ） -->
+        <a href="category_nav/list.php" class="admin-card">
+            <div class="admin-card-icon">📚</div>
+            <div class="admin-card-title">カテゴリナビ管理</div>
+            <div class="admin-card-desc">カテゴリナビの編集</div>
+        </a>
 
         <!-- ニュース管理（news フォルダ） -->
         <a href="news/news_manage.php" class="admin-card">

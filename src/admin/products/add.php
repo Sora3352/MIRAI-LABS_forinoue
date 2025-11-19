@@ -14,12 +14,17 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品追加 | E-mart 管理</title>
-    <link rel="stylesheet" href="/E-mart/asset/css/product.css?v=2"><!-- CSSバージョン２ -->
+    <link rel="stylesheet" href="/E-mart/asset/css/product.css">
 </head>
 
 <body>
 
     <h1>商品追加</h1>
+
+    <!-- 戻るボタン -->
+    <div class="back-wrap">
+        <a href="/E-mart/src/admin/products/list.php" class="back-btn">← 戻る</a>
+    </div>
 
     <form action="add_save.php" method="POST" enctype="multipart/form-data" class="product-form">
 

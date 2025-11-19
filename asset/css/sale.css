@@ -1,0 +1,236 @@
+/* ============================
+   セール管理ページ 共通
+============================ */
+.sale-wrapper {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 24px 28px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sale-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 22px;
+    border-left: 6px solid #ff8a00;
+    padding-left: 14px;
+    color: #444;
+}
+
+
+/* ============================
+   一覧ページ (sale_list)
+============================ */
+.sale-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    /* 行間を広げる */
+    font-size: 14px;
+}
+
+.sale-table tr {
+    background: #fff;
+}
+
+.sale-table th {
+    background: #fafafa;
+    padding: 12px 10px;
+    border-bottom: 2px solid #e4e4e4;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.sale-table td {
+    padding: 14px 10px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.sale-row {
+    transition: background 0.15s ease;
+}
+
+.sale-row:hover {
+    background: #fff5e6;
+}
+
+/* 割引 (%) */
+.sale-discount {
+    color: #d5401b;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* タイムセールラベル */
+.sale-timer {
+    display: inline-block;
+    padding: 2px 6px;
+    background: #ffdddd;
+    color: #c00;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+
+/* ============================
+   ボタン（一覧）
+============================ */
+.sale-btn-sm {
+    display: inline-block;
+    padding: 7px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    background: #0077ff;
+    font-weight: bold;
+}
+
+.sale-btn-sm:hover {
+    opacity: 0.9;
+}
+
+.sale-btn-sm.gray {
+    background: #777;
+}
+
+.sale-btn-sm.delete {
+    background: #e03a2f;
+}
+
+/* 追加ボタン */
+.sale-add-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background: #ff8a00;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.sale-add-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* ============================
+   編集ページ (sale_edit)
+============================ */
+.sale-form {
+    margin-top: 10px;
+}
+
+.sale-form .form-row {
+    margin-bottom: 18px;
+}
+
+.sale-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.sale-form input,
+.sale-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: border 0.15s ease;
+}
+
+.sale-form input:focus,
+.sale-form select:focus {
+    border-color: #ff8a00;
+    outline: none;
+}
+
+/* 保存ボタン */
+.sale-save-btn {
+    margin-top: 25px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    background: #ff8a00;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.sale-save-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* ============================
+   プレビュー（割引計算結果）
+============================ */
+.sale-preview-box {
+    margin-top: 22px;
+    padding: 16px;
+    background: #fff8e1;
+    border-left: 6px solid #ff8a00;
+    border-radius: 6px;
+}
+
+.sale-preview-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.sale-preview-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e03a2f;
+}
+
+.sale-preview-old {
+    text-decoration: line-through;
+    color: #777;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.sale-preview-percent {
+    color: #d5401b;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+
+/* ============================
+   レイアウト補助
+============================ */
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.gap-20 {
+    gap: 20px;
+}

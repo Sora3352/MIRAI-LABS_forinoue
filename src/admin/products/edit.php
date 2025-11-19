@@ -87,6 +87,7 @@ $categories = $cat_stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <label>画像を変更する（任意）</label>
         <input type="file" name="image">
+        <input type="hidden" name="return_category" value="<?= $product['category_id'] ?>">
 
         <button type="submit" class="submit-btn">更新する</button>
 

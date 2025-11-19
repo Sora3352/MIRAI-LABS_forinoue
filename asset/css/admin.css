@@ -1,9 +1,29 @@
+/* ============================
+   管理画面 共通レイアウト
+============================ */
 .admin-list-wrapper {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+/* タイトル用（必要に応じて） */
+.admin-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-left: 6px solid #ffa000;
+    padding-left: 10px;
+}
+
+
+/* ============================
+   追加ボタン
+============================ */
 .add-btn {
     display: inline-block;
     margin-bottom: 15px;
@@ -15,25 +35,152 @@
     font-weight: bold;
 }
 
+.add-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* ============================
+   一覧テーブル
+============================ */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 14px;
 }
 
 .admin-table th,
 .admin-table td {
     border: 1px solid #ccc;
     padding: 10px;
+    vertical-align: middle;
 }
 
 .admin-table th {
     background: #f5f5f5;
+    font-weight: bold;
+    text-align: left;
 }
 
+
+/* ============================
+   小さめボタン（一覧用）
+============================ */
+.btn-sm {
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background: #007bff;
+}
+
+.btn-sm:hover {
+    opacity: 0.85;
+}
+
+.btn-sm.gray {
+    background: #777;
+}
+
+.btn-sm.delete {
+    background: #d9534f;
+}
+
+/* テーブル内でボタンを横並びにしたい時 */
+.btn-inline {
+    display: flex;
+    gap: 6px;
+}
+
+
+/* ============================
+   エラーメッセージ
+============================ */
 .error-message {
     background: #ffe0e0;
     color: #c00;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 6px;
+    font-weight: bold;
+}
+
+
+/* ============================
+   フォーム系（追加・編集画面用）
+============================ */
+.admin-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 6px;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.admin-form textarea {
+    height: 100px;
+}
+
+/* 保存ボタン系 */
+.btn-save {
+    display: inline-block;
+    margin-top: 20px;
+    background: #ffa000;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    opacity: 0.9;
+}
+
+
+/* ============================
+   ちょっとしたレイアウト補助
+============================ */
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.gap-20 {
+    gap: 20px;
+}
+
+
+/* ============================
+   注意・インフォメーション枠
+============================ */
+.notice-box {
+    padding: 10px 14px;
+    background: #fff8e1;
+    border-left: 5px solid #ffa000;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
