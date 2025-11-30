@@ -13,19 +13,37 @@ $stmt->execute();
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// ------------------------
+// ログイン失敗
+// ------------------------
 if (!$user || !password_verify($password, $user['password'])) {
     $_SESSION['login_error'] = "メールアドレス または パスワードが違います。";
     header("Location: login_input.php");
     exit;
 }
 
-// ここで user情報をSESSIONに登録！
+// ------------------------
+// ログイン成功 → SESSION登録
+// ------------------------
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['user_last_name'] = $user['last_name'];
 $_SESSION['user_first_name'] = $user['first_name'];
 $_SESSION['user_email'] = $user['email'];
 $_SESSION['user_name'] = $user['last_name'] . " " . $user['first_name'];
 
-// マイページトップへ移動
+// ======================================================
+// 🔥 重要：直前のアクセス先へリダイレクトする処理
+// （例：商品詳細 → カート追加 → 未ログイン → ログインしたら商品詳細に戻す）
+// ======================================================
+if (isset($_SESSION['redirect_after_login'])) {
+    $go = $_SESSION['redirect_after_login'];
+    unset($_SESSION['redirect_after_login']); // 一度だけ使う
+    header("Location: $go");
+    exit;
+}
+
+// ------------------------
+// 通常ログイン（デフォルト）
+// ------------------------
 header("Location: ../mypage/mypage_top.php");
 exit;

@@ -1,0 +1,145 @@
+.detail-page {
+    background: #fff;
+    padding: 20px;
+}
+
+.detail-wrapper {
+    display: flex;
+    gap: 36px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detail-image {
+    width: 48%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.detail-image img {
+    width: 100%;
+    max-width: 520px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #fff;
+}
+
+.detail-info {
+    width: 52%;
+}
+
+.detail-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.detail-price {
+    font-size: 28px;
+    color: #B12704;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.detail-delivery {
+    font-size: 14px;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.detail-ship-company {
+    font-weight: 700;
+}
+
+.detail-ship-free,
+.detail-ship-date {
+    font-weight: 700;
+}
+
+.detail-stock {
+    margin: 10px 0 18px;
+    font-size: 15px;
+}
+
+.in-stock {
+    color: #007600;
+    font-weight: 700;
+}
+
+.out-stock {
+    color: #d50000;
+    font-weight: 700;
+}
+
+.detail-cart-form {
+    margin-bottom: 18px;
+}
+
+.detail-cart-btn {
+    width: 260px;
+    background: #FFA41C;
+    border: 1px solid #FF8F00;
+    border-radius: 24px;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.detail-cart-btn:hover {
+    background: #FF8F00;
+}
+
+.detail-desc {
+    margin-top: 18px;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.detail-desc h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.detail-desc p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.7;
+}
+
+.detail-qty {
+    margin: 15px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail-qty select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+
+/* PC小さめ対応 */
+@media (max-width: 1000px) {
+    .detail-wrapper {
+        flex-direction: column;
+    }
+
+    .detail-image,
+    .detail-info {
+        width: 100%;
+    }
+
+    .detail-cart-btn {
+        width: 100%;
+        max-width: 360px;
+    }
+}

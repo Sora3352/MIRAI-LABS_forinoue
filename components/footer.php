@@ -29,7 +29,7 @@ $WEB_ROOT = "/" . $project_root . "/";
 
 <footer class="e-footer">
     <div class="footer-links">
-        <a href="<?= $WEB_ROOT ?>src/contact/contact.php">お問い合わせフォーム</a>
+        <a href="<?= $WEB_ROOT ?>src/contact/contact_form.php">お問い合わせフォーム</a>
         <a href="<?= $WEB_ROOT ?>src/faq/faq.php">よくある質問</a>
     </div>
 

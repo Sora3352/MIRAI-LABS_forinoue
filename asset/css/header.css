@@ -126,6 +126,7 @@
     font-size: 0.8rem;
     cursor: pointer;
     text-align: center;
+    white-space: nowrap;
 }
 
 /* 絞り込み */
@@ -133,14 +134,28 @@
     padding: 8px 14px;
     border-radius: 6px;
     border: 1px solid #bbb;
+    white-space: nowrap;
 }
 
-/* 検索ボックス */
-.search-box {
+/* ======================
+   検索フォーム（改良）
+====================== */
+.search-form {
+    display: flex;
+    align-items: center;
     flex: 1;
+    /* 🔥 これで最大まで広がる */
+    gap: 8px;
+}
+
+/* ボックスを100%に広げる */
+.search-form .search-box {
+    flex: 1;
+    width: 100%;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 /* 検索ボタン */
@@ -151,4 +166,124 @@
     padding: 10px 18px;
     border-radius: 6px;
     cursor: pointer;
+    white-space: nowrap;
+}
+
+/* =============================
+   レスポンシブ（画面幅 1400px 以下）
+============================= */
+@media (max-width: 1400px) {
+
+    .header-top,
+    .header-bottom {
+        padding: 6px 12px;
+        gap: 8px;
+    }
+
+    .header-center {
+        gap: 8px;
+        flex-wrap: wrap;
+        /* ← 横に入り切らない場合は左に折り返す */
+    }
+
+    .emart-logo {
+        height: 38px;
+        /* ← ロゴ少し小さく */
+    }
+
+    .item-count-img {
+        height: 16px;
+    }
+
+    .btn,
+    .info-btn,
+    .qa-btn {
+        padding: 4px 10px;
+        /* ボタン余白調整 */
+        font-size: 0.8rem;
+    }
+
+    .cart-icon {
+        height: 18px;
+    }
+
+    .search-form .search-box {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .search-btn {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+/* =============================
+   さらに狭い画面（1280px 以下）
+============================= */
+@media (max-width: 1280px) {
+
+    .header-top {
+        flex-wrap: wrap;
+        /* ← ここで2段に分ける */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header-center {
+        justify-content: center;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .search-form {
+        gap: 6px;
+    }
+
+    .search-form .search-box {
+        padding: 7px;
+        font-size: 0.85rem;
+    }
+
+    .search-btn {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+    }
+
+    .quick-order-btn,
+    .filter-select {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+/* =============================
+   1100px 以下ではさらにコンパクトに
+============================= */
+@media (max-width: 1100px) {
+
+    .header-bottom {
+        flex-wrap: wrap;
+        /* ← 下段も折り返し可能に */
+        justify-content: center;
+    }
+
+    .search-form {
+        width: 100%;
+        /* → 検索ボックスは最上段で全幅使用 */
+        order: 3;
+    }
+
+    .quick-order-btn,
+    .filter-select {
+        order: 1;
+    }
+
+    .search-btn {
+        white-space: nowrap;
+    }
+
+    .emart-logo {
+        height: 32px;
+    }
 }

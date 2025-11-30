@@ -108,7 +108,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/header.php");
             <div class="sale-list">
                 <?php foreach ($sale_products as $s): ?>
 
-                    <a class="sale-card" href="/E-mart/src/product/product_detail.php?id=<?= $s['product_id'] ?>">
+                    <a class="sale-card" href="/E-mart/src/product/detail.php?id=<?= $s['product_id'] ?>">
 
                         <!-- 画像パスの統一処理 -->
                         <?php
@@ -123,13 +123,13 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/header.php");
                         <img src="<?= htmlspecialchars($img) ?>" alt="" class="sale-img">
 
                         <!-- Amazon風ラベル -->
-<div class="sale-label-wrap">
-    <span class="sale-label off-label"><?= $s['discount_percent'] ?>%OFF</span>
+                        <div class="sale-label-wrap">
+                            <span class="sale-label off-label"><?= $s['discount_percent'] ?>%OFF</span>
 
-    <?php if ($s['is_time_sale']): ?>
-        <span class="sale-label time-label">タイムセール</span>
-    <?php endif; ?>
-</div>
+                            <?php if ($s['is_time_sale']): ?>
+                                <span class="sale-label time-label">タイムセール</span>
+                            <?php endif; ?>
+                        </div>
 
                         <div class="sale-price">
                             ¥<?= number_format($s['sale_price']) ?>
@@ -158,7 +158,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/header.php");
             <div class="pickup-slider">
                 <?php foreach ($pickups as $p): ?>
 
-                    <a class="pickup-card" href="/E-mart/src/product/product_detail.php?id=<?= $p['product_id'] ?>">
+                    <a class="pickup-card" href="/E-mart/src/product/detail.php?id=<?= $p['product_id'] ?>">
 
                         <!-- 画像パス -->
                         <?php

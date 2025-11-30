@@ -26,7 +26,7 @@ $logged_in = isset($_SESSION['user_id']);
 $user_name = $_SESSION['user_name'] ?? "";
 ?>
 
-<link rel="stylesheet" href="/E-mart/asset/css/header.css">
+<link rel="stylesheet" href="/E-mart/asset/css/header.css?v=1.0.7">
 <script src="/E-mart/asset/js/main.js" defer></script>
 
 <header class="emart-header">
@@ -55,13 +55,13 @@ $user_name = $_SESSION['user_name'] ?? "";
             <span>|</span>
             <a href="/E-mart/src/order/order_history.php" class="mypage-link">購入履歴</a>
 
-            <a href="/E-mart/src/cart/cart_view.php" class="cart-link">
+            <a href="/E-mart/src/cart/cart.php" class="cart-link">
                 <img src="/E-mart/asset/img/cart.jpg" class="cart-icon" alt="">
                 カート
             </a>
 
             <a href="/E-mart/src/contact/contact_form.php" class="info-btn">WEB お問い合わせ<br>フォーム</a>
-            <a href="/E-mart/src/contact/contact_form.php" class="qa-btn">よくある質問<br>Q&A</a>
+            <a href="#" class="qa-btn">よくある質問<br>Q&A</a>
         </div>
 
     </div>
@@ -76,9 +76,11 @@ $user_name = $_SESSION['user_name'] ?? "";
             <option>絞り込み ▽</option>
         </select>
 
-        <input type="text" class="search-box" placeholder="商品名、キーワード、注文コード、使用用途">
-
-        <button class="search-btn">検索</button>
+        <!-- 🔥 検索フォーム（ここだけフォーム化する）-->
+        <form action="/E-mart/src/product/list.php" method="get" class="search-form">
+            <input type="text" name="keyword" class="search-box" placeholder="商品名、キーワード、注文コード、使用用途">
+            <button type="submit" class="search-btn">検索</button>
+        </form>
 
     </div>
 

@@ -7,8 +7,8 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require_once("../../asset/php/db_connect.php");
-include_once("../../components/header.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/asset/php/db_connect.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/header.php");
 
 // ログインユーザー名取得
 $user_name = $_SESSION['user_name'] ?? "ゲスト";
@@ -56,6 +56,30 @@ $user_name = $_SESSION['user_name'] ?? "ゲスト";
                 <p>まだ購入履歴はありません</p>
             </div>
         </div>
+        <!-- ▼ お問い合わせ履歴 -->
+        <div class="mypage-box">
+            <div class="mypage-box-header">
+                <div class="title-left">
+                    <i class="fa-solid fa-headset"></i> お問い合わせ履歴
+                </div>
+                <a href="/E-mart/src/contact/contact_history.php" class="btn-small">一覧を見る</a>
+            </div>
+
+            <div class="mypage-box-body">
+                <p>過去のお問い合わせ内容を確認できます。</p>
+
+                <div class="mypage-links">
+                    <a href="/E-mart/src/contact/contact_history.php">
+                        <i class="fa-solid fa-comments"></i> お問い合わせ履歴を開く
+                    </a>
+
+                    <a href="/E-mart/src/contact/contact_form.php">
+                        <i class="fa-solid fa-envelope-circle-check"></i> 新しいお問い合わせ
+                    </a>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -70,4 +94,4 @@ $user_name = $_SESSION['user_name'] ?? "ゲスト";
 
 </div>
 
-<?php include_once("../../components/footer.php"); ?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/footer.php"); ?>
