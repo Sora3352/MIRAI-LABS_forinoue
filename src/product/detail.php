@@ -9,13 +9,26 @@ if (!isset($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-// 商品取得
+/* ================================
+   商品 + セール情報取得
+================================ */
 $sql = "
     SELECT 
         p.*,
-        c.name AS category_name
+        c.name AS category_name,
+        s.sale_price,
+        s.start_at,
+        s.end_at,
+        CASE
+            WHEN s.sale_price IS NOT NULL
+                 AND s.start_at <= NOW()
+                 AND s.end_at >= NOW()
+            THEN s.sale_price
+            ELSE p.price
+        END AS final_price
     FROM products p
     LEFT JOIN categories c ON p.category_id = c.id
+    LEFT JOIN sale_products s ON s.product_id = p.id
     WHERE p.id = :id
 ";
 
@@ -29,9 +42,20 @@ if (!$product) {
     exit;
 }
 
-$stock = (int) $product['stock'];   // 在庫数
+$stock = (int) $product['stock'];
 
-// 発送ロジック（Amazon風）
+/* セール中かどうかの判定 */
+$is_sale = (
+    !empty($product['sale_price']) &&
+    $product['start_at'] <= date('Y-m-d H:i:s') &&
+    $product['end_at']   >= date('Y-m-d H:i:s')
+);
+
+$final_price = (int) $product['final_price'];
+
+/* ============================
+   配送日ロジック
+============================ */
 $now = new DateTime('now');
 $cutoff = new DateTime('today 18:00');
 $delivery = ($now <= $cutoff)
@@ -39,7 +63,9 @@ $delivery = ($now <= $cutoff)
     : new DateTime('tomorrow +1 day');
 $delivery_date = $delivery->format('n月j日');
 
-// ヘッダー読込
+/* ============================
+   ヘッダー読込
+============================ */
 include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
 ?>
 
@@ -58,8 +84,25 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
 
         <h1 class="detail-title"><?= htmlspecialchars($product['name']) ?></h1>
 
+        <!-- ====================== 価格表示 ====================== -->
         <div class="detail-price">
-            ￥<?= number_format($product['price']) ?>
+
+            <?php if ($is_sale): ?>
+                <span style="color:#d00; font-size:26px; font-weight:bold;">
+                    ￥<?= number_format($final_price) ?>
+                </span>
+                <span style="text-decoration:line-through; color:#777; margin-left:8px;">
+                    ￥<?= number_format($product['price']) ?>
+                </span>
+                <div style="color:#d00; font-weight:bold; margin-top:4px;">
+                    ✨ タイムセール価格！ ✨
+                </div>
+            <?php else: ?>
+                <span style="font-size:26px; font-weight:bold;">
+                    ￥<?= number_format($final_price) ?>
+                </span>
+            <?php endif; ?>
+
         </div>
 
         <!-- 発送日 -->
@@ -69,11 +112,11 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
             <span class="date"><?= $delivery_date ?></span> にお届け
         </div>
 
-        <!-- ====================== 在庫あり：カートに入れる ====================== -->
+        <!-- ====================== カートに入れる ====================== -->
         <?php if ($stock > 0): ?>
             <form method="post" action="/E-mart/src/cart/cart_add.php">
 
-                <!-- 数量選択（在庫まで） -->
+                <!-- 数量選択 -->
                 <div class="detail-qty">
                     <label for="qty">数量：</label>
                     <select id="qty" name="quantity">
@@ -84,14 +127,13 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
                 </div>
 
                 <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                <input type="hidden" name="price_snapshot" value="<?= $final_price ?>">
+
                 <button class="detail-cart-btn">カートに入れる</button>
 
             </form>
         <?php else: ?>
-
-            <!-- ====================== 在庫なし ====================== -->
             <div class="detail-soldout">品切れです</div>
-
         <?php endif; ?>
 
         <!-- 商品説明 -->

@@ -9,14 +9,16 @@ if (!isset($_SESSION['user_id'])) {
 }
 $user_id = (int) $_SESSION['user_id'];
 
-// カート取得（商品情報＋カテゴリ名）
+/* ===========================================
+   カート取得（★重要：price_snapshot 使用）
+=========================================== */
 $sql = "
     SELECT 
         ci.id AS cart_item_id,
         ci.quantity,
+        ci.price_snapshot,   -- ★セール価格または通常価格の確定値
         p.id AS product_id,
         p.name,
-        p.price,
         p.stock,
         p.image_url,
         c.name AS category_name
@@ -26,19 +28,25 @@ $sql = "
     WHERE ci.user_id = :user_id
     ORDER BY ci.created_at DESC
 ";
+
 $stmt = $pdo->prepare($sql);
 $stmt->execute([':user_id' => $user_id]);
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// 合計計算
+/* ===========================================
+   小計計算（必ず price_snapshot）
+=========================================== */
 $subtotal = 0;
 foreach ($items as $it) {
-    $subtotal += ((int) $it['price']) * ((int) $it['quantity']);
+    $price = (int) $it['price_snapshot']; // ★修正
+    $qty = (int) $it['quantity'];
+    $subtotal += $price * $qty;
 }
 
 // header
 include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
 ?>
+
 <link rel="stylesheet" href="/E-mart/asset/css/cart.css">
 
 <main class="cart-page">
@@ -54,7 +62,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
             <!-- 左：商品リスト -->
             <section class="cart-items">
                 <?php foreach ($items as $it):
-                    $price = (int) $it['price'];
+                    $price = (int) $it['price_snapshot']; // ★セール価格確定
                     $qty = (int) $it['quantity'];
                     $stock = (int) $it['stock'];
                     $line_total = $price * $qty;
@@ -71,6 +79,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
                                 <?= htmlspecialchars($it['name']) ?>
                             </div>
 
+                            <!-- ★価格表示を price_snapshot に変更 -->
                             <div class="cart-item-price">
                                 ￥<?= number_format($price) ?>
                             </div>
@@ -83,15 +92,13 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
                                 <?php endif; ?>
                             </div>
 
-                            <!-- 数量変更（在庫数まで） -->
+                            <!-- 数量変更 -->
                             <form method="post" action="/E-mart/src/cart/cart_update.php" class="cart-qty-form">
                                 <input type="hidden" name="cart_item_id" value="<?= $it['cart_item_id'] ?>">
 
                                 <select name="quantity" onchange="this.form.submit()">
                                     <?php
-                                    // 在庫数までしか選べない
                                     $max_qty = max(1, $stock);
-
                                     for ($n = 1; $n <= $max_qty; $n++):
                                         ?>
                                         <option value="<?= $n ?>" <?= ($qty === $n) ? 'selected' : '' ?>>
@@ -109,6 +116,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
                             </form>
                         </div>
 
+                        <!-- ★小計も snapshot × qty -->
                         <div class="cart-item-total">
                             ￥<?= number_format($line_total) ?>
                         </div>
@@ -129,9 +137,6 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
                         レジに進む
                     </a>
 
-                    <div class="summary-note">
-                        ※注文確定はまだしない仕様でもOK。後で実装で大丈夫。
-                    </div>
                 </div>
             </aside>
 

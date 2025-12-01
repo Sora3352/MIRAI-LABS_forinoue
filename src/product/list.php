@@ -10,7 +10,7 @@ $category_id = $_GET['category'] ?? '';
 $price_min = $_GET['price_min'] ?? '';
 $price_max = $_GET['price_max'] ?? '';
 $in_stock = $_GET['in_stock'] ?? '';
-$sort = $_GET['sort'] ?? ''; // ← 並び替え追加
+$sort = $_GET['sort'] ?? ''; // 並び替え
 
 
 // ============================
@@ -19,16 +19,29 @@ $sort = $_GET['sort'] ?? ''; // ← 並び替え追加
 $cat_stmt = $pdo->query("SELECT id, name FROM categories ORDER BY name ASC");
 $categories = $cat_stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 // ============================
-// 商品一覧 SQL
+// 商品一覧 SQL（★セール対応）
 // ============================
 $sql = "
     SELECT 
         p.*,
-        c.name AS category_name
+        c.name AS category_name,
+        s.sale_price,
+        s.start_at,
+        s.end_at,
+        CASE
+            WHEN s.sale_price IS NOT NULL
+                 AND s.start_at <= NOW()
+                 AND s.end_at   >= NOW()
+            THEN s.sale_price
+            ELSE p.price
+        END AS final_price
     FROM products p
     LEFT JOIN categories c
         ON p.category_id = c.id
+    LEFT JOIN sale_products s
+        ON s.product_id = p.id
     WHERE 1
 ";
 
@@ -46,7 +59,7 @@ if ($category_id !== '') {
     $params[':category_id'] = (int) $category_id;
 }
 
-// 価格帯
+// 価格帯（★final_price ではなく元の price 基準にしておく）
 if ($price_min !== '') {
     $sql .= " AND p.price >= :price_min";
     $params[':price_min'] = (float) $price_min;
@@ -62,26 +75,23 @@ if ($in_stock === '1') {
 }
 
 // ============================
-// 並び替え SQL 追加（ここが今回の追加点）
+// 並び替え（★final_price 使用）
 // ============================
-
 $sql .= " ORDER BY 
-    CASE WHEN p.stock > 0 THEN 0 ELSE 1 END,  /* ← 在庫あり優先 */
+    CASE WHEN p.stock > 0 THEN 0 ELSE 1 END,
 ";
 
 if ($sort === 'price_asc') {
-    $sql .= " p.price ASC, p.id DESC";
+    $sql .= " final_price ASC, p.id DESC";
 } elseif ($sort === 'price_desc') {
-    $sql .= " p.price DESC, p.id DESC";
+    $sql .= " final_price DESC, p.id DESC";
 } else {
-    $sql .= " p.id DESC";  // ← デフォルト：新着順
+    $sql .= " p.id DESC";  // デフォルト：新着順
 }
-
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 
 // ============================
 // ページネーション
@@ -117,8 +127,6 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
 
         <!-- 並び替え -->
         <form method="get" class="sort-form">
-
-            <!-- 絞り込みパラメータを保持する hidden -->
             <?php foreach ($_GET as $key => $value): ?>
                 <?php if ($key !== 'sort' && $key !== 'page'): ?>
                     <input type="hidden" name="<?= htmlspecialchars($key) ?>" value="<?= htmlspecialchars($value) ?>">
@@ -194,6 +202,11 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
             <?php if (!empty($products)): ?>
 
                 <?php foreach ($products as $p): ?>
+                    <?php
+                    $final_price = (int) $p['final_price'];
+                    $base_price = (int) $p['price'];
+                    $is_sale = ($final_price < $base_price);
+                    ?>
                     <div class="product-card">
 
                         <a href="/E-mart/src/product/detail.php?id=<?= $p['id'] ?>" class="product-link"
@@ -208,10 +221,20 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
                             </div>
 
                             <div class="product-price">
-                                ￥<?= number_format($p['price']) ?>
+                                <?php if ($is_sale): ?>
+                                    <span style="color:#d00; font-weight:bold;">
+                                        ￥<?= number_format($final_price) ?>
+                                    </span>
+                                    <span style="text-decoration:line-through; color:#777; margin-left:6px; font-size:0.9em;">
+                                        ￥<?= number_format($base_price) ?>
+                                    </span>
+                                <?php else: ?>
+                                    <span>
+                                        ￥<?= number_format($final_price) ?>
+                                    </span>
+                                <?php endif; ?>
                             </div>
                         </a>
-
 
                         <!-- 発送ロジック -->
                         <?php
@@ -254,10 +277,8 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
 
             <?php endif; ?>
 
-
-
         </div><!-- /product-grid -->
-    </div><!-- /product-grid -->
+    </div><!-- /product-page-inner -->
 
     <!-- ======= ページネーション ======= -->
     <div class="pagination">
@@ -269,7 +290,6 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
         <?php endif; ?>
 
         <?php
-        // ページ番号の表示範囲（最大 7 個）
         $start = max(1, $page - 3);
         $end = min($total_pages, $page + 3);
 
@@ -288,13 +308,6 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/E-mart/components/header.php');
         <?php endif; ?>
 
     </div><!-- /pagination -->
-
-    </div><!-- /product-page-inner -->
-
-</main>
-
-
-</div><!-- /product-page-inner -->
 
 </main>
 

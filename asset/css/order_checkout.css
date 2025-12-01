@@ -1,0 +1,179 @@
+/* ================================
+   注文確認（checkout）ページ全体
+================================ */
+.checkout-wrapper {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+.checkout-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* レイアウト：左（内容） + 右（合計） */
+.checkout-layout {
+  display: flex;
+  gap: 25px;
+}
+
+/* 左カラム */
+.checkout-left {
+  flex: 3;
+}
+
+/* 右カラム */
+.checkout-right {
+  flex: 1;
+}
+
+/* ================================
+   ボックス（Amazon風カード）
+================================ */
+.checkout-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 18px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.checkout-box-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ユーザー & 住所 */
+.checkout-user-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.checkout-address {
+  margin-top: 6px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.checkout-email {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 支払い方法 */
+.checkout-pay {
+  font-size: 16px;
+  color: #333;
+}
+
+/* 配送 */
+.checkout-delivery {
+  font-size: 15px;
+  color: #333;
+}
+
+/* ================================
+   商品一覧（Amazon風）
+================================ */
+.checkout-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+}
+
+.checkout-item:first-child {
+  border-top: none;
+}
+
+.checkout-item-img img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.checkout-item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.item-price {
+  font-size: 15px;
+  color: #b12704;
+  margin-bottom: 4px;
+}
+
+.item-qty {
+  font-size: 14px;
+  color: #444;
+}
+
+/* ================================
+   右側 : 料金ボックス（Amazon風）
+================================ */
+.summary-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 18px;
+  border-radius: 8px;
+  position: sticky;
+  top: 20px;
+}
+
+.summary-row {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #111;
+}
+
+.summary-price {
+  color: #b12704;
+  font-size: 20px;
+}
+
+/* 注文確定ボタン（Amazon風） */
+.checkout-btn {
+  width: 100%;
+  background: #ffa41c;
+  border: 1px solid #ff8f00;
+  padding: 12px 0;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 12px;
+  color: #111;
+  transition: 0.2s;
+}
+
+.checkout-btn:hover {
+  background: #ff8f00;
+}
+
+.summary-note {
+  font-size: 12px;
+  color: #666;
+}
+
+/* ================================
+   レスポンシブ
+================================ */
+@media (max-width: 900px) {
+  .checkout-layout {
+    flex-direction: column;
+  }
+
+  .checkout-right {
+    order: -1;
+  }
+}

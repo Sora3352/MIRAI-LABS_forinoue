@@ -99,7 +99,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/header.php");
 
 
     <!-- =====================================================
-         セール中の商品（pickup と同じデザイン）
+         セール中の商品
     ====================================================== -->
     <?php if (!empty($sale_products)): ?>
         <section class="sale-slider">
@@ -188,4 +188,4 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/header.php");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/E-mart/components/footer.php");
 ?>
 
-<link rel="stylesheet" href="/E-mart/asset/css/front.css">
+<link rel="stylesheet" href="/E-mart/asset/css/front.css?v=1.0.5">

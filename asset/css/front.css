@@ -126,9 +126,12 @@ body {
 }
 
 .pickup-price {
-    font-size: 15px;
-    font-weight: bold;
-    color: #ff7b00;
+    font-size: 20px;
+    color: #B12704;
+    /* Amazon 赤 */
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-decoration: none;
 }
 
 .pickup-star {
@@ -231,9 +234,12 @@ body {
 }
 
 .sale-price {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 8px;
+    font-size: 20px;
+    color: #B12704;
+    /* Amazon 赤 */
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-decoration: none;
 }
 
 .sale-old {
